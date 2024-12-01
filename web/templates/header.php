@@ -1,4 +1,3 @@
-<!-- https://demos.adminmart.com/premium/bootstrap/modernize-bootstrap/package/html/main/index.html -->
 <?php
 session_start();
 include_once("../config/database.php");

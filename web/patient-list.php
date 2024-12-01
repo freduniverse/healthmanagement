@@ -1,10 +1,10 @@
 <?php
 
-  $hasBack = true;
-  include "templates/header.php";
+$hasBack = true;
+include "templates/header.php";
 
-  $role = "Patient";
-  $account_list = account()->list("role='$role' and isDeleted=0");
+$role = "Patient";
+$account_list = account()->list("role='$role' and isDeleted=0");
 ?>
 
 
@@ -21,13 +21,13 @@
                     <i class="ti ti-search position-absolute top-50 start-0 translate-middle-y fs-6 text-dark ms-3"></i>
                 </form>
             </div>
-            <?php if ($page=="patients"): ?>
+            <?php if ($page == "patients"): ?>
             <div class="col-md-8 col-xl-9 text-end d-flex justify-content-md-end justify-content-center mt-3 mt-md-0">
                 <a href="patient-form.php" class="btn btn-info d-flex align-items-center">
                     <i class="ti ti-users text-white me-1 fs-5"></i> Add <?=$role;?>
                 </a>
             </div>
-            <?php endif; ?>
+            <?php endif;?>
         </div>
     </div>
 
@@ -105,10 +105,10 @@
                     <!-- start row -->
 
                     <?php
-                $count = 0;
-                foreach ($account_list as $row):
-                  $count += 1;
-                   ?>
+$count = 0;
+foreach ($account_list as $row):
+    $count += 1;
+    ?>
 
                     <tr class="search-items">
                         <td>
@@ -142,31 +142,42 @@
                             </div>
                         </td>
                         <td>
-                            <?php if ($page=="patients"): ?>
-                                <a href="patient-form.php?Id=<?=$row->Id?>" class="btn btn-primary">Edit</a>
-                            <?php endif; ?>
+                            <?php if ($page == "patients"): ?>
+                            <a href="patient-form.php?Id=<?=$row->Id?>" class="btn btn-primary">Edit</a>
+                            <?php endif;?>
 
-                            
-<?php if ($page=="newAppointment"): ?>
-    <a href="appointment-form.php?patientId=<?=$row->Id?>" class="btn btn-primary">Create Appointment</a>
-<?php endif; ?>
 
-                            
-<?php if ($page=="newLabTest"): ?>
-    <a href="lab-form.php?patientId=<?=$row->Id?>" class="btn btn-primary">Create New Lab Test</a>
-<?php endif; ?>
+                            <?php if ($page == "newAppointment"): ?>
+                            <a href="appointment-form.php?patientId=<?=$row->Id?>" class="btn btn-primary">Create
+                                Appointment</a>
+                            <?php endif;?>
+
+
+                            <?php if ($page == "newLabTest"): ?>
+                            <div class="dropdown">
+                                <button class="btn btn-secondary dropdown-toggle" type="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false">
+                                    Create New Lab Test
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="urinalysis-form.php?patientId=<?=$row->Id?>">Urinalysis</a></li>
+                                    <li><a class="dropdown-item" href="cbc-form.php?patientId=<?=$row->Id?>">Clinical Chemistry</a></li>
+                                    <li><a class="dropdown-item" href="lipid-form.php?patientId=<?=$row->Id?>">Lipid Profile</a></li>
+                                </ul>
+                            </div>
+                            <?php endif;?>
                         </td>
                     </tr>
                     <!-- end row -->
 
-                    <?php endforeach; ?>
+                    <?php endforeach;?>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
 
-<?php include "templates/footer.php"; ?>
+<?php include "templates/footer.php";?>
 
 
 <script type="text/javascript">

@@ -38,7 +38,7 @@ include "templates/header.php";
 
 
     <div class="col-3">
-    <div class="card clickable web-option" onclick="location.href='lab-result-list.php'">
+    <div class="card clickable web-option" onclick="location.href='lab-test-list.php'">
             <div class="card-body text-center">
                 <h5>Lab Test History</h5>
             </div>

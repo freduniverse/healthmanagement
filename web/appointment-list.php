@@ -38,9 +38,8 @@
                 $count = 0;
                 foreach ($appointmentList as $row):
                     $patient = account()->get("Id=$row->patientId");
-                  $count += 1;
+                    $count += 1;
                    ?>
-
                     <tr class="search-items">
                         <td>
                             <div class="d-flex align-items-center">
@@ -66,7 +65,8 @@
                     </tr>
                     <!-- end row -->
 
-                    <?php endforeach; ?>
+                    <?php 
+                     endforeach; ?>
                 </tbody>
             </table>
         </div>

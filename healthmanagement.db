@@ -1,5 +1,5 @@
 ﻿# Host: localhost  (Version 5.5.5-10.4.32-MariaDB)
-# Date: 2024-10-16 17:13:02
+# Date: 2024-11-24 18:52:23
 # Generator: MySQL-Front 6.0  (Build 2.20)
 
 
@@ -26,7 +26,13 @@ CREATE TABLE `account` (
   `isDeleted` int(11) DEFAULT 0,
   `city` text DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPRESSED;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=COMPRESSED;
+
+#
+# Data for table "account"
+#
+
+INSERT INTO `account` VALUES (1,'admin','1234','john','doe','Active','Admin',NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,NULL),(6,'doc','12','yan','delfin','Active','Doctor','2024-10-16',NULL,NULL,NULL,NULL,NULL,NULL,0,NULL),(7,'fred','123456','fredo','garcia','Active','Patient','2024-10-16','2024-10-24','Male',NULL,'232342356','fredo@gmail.com','bata',0,'bacolod'),(8,'yaz','12345','yanz','delfin','Active','Laboratory','2024-10-16',NULL,NULL,NULL,NULL,NULL,NULL,0,NULL),(9,'lab','12','12','12','Active','Laboratory','2024-11-24',NULL,NULL,NULL,NULL,NULL,NULL,0,NULL);
 
 #
 # Structure for table "appointment"
@@ -40,7 +46,51 @@ CREATE TABLE `appointment` (
   `dateAdded` date DEFAULT NULL,
   `purpose` text DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+#
+# Data for table "appointment"
+#
+
+INSERT INTO `appointment` VALUES (1,6,7,'2024-10-16','eowyasjkdbkjasbdkasb bb kaskdb ');
+
+#
+# Structure for table "cbc"
+#
+
+DROP TABLE IF EXISTS `cbc`;
+CREATE TABLE `cbc` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `patientId` int(11) DEFAULT NULL,
+  `bloodUreaNitrogenResult` varchar(50) DEFAULT NULL,
+  `bloodUreaNitrogenStatus` varchar(50) DEFAULT NULL,
+  `creatinineResult` varchar(50) DEFAULT NULL,
+  `creatinineStatus` varchar(50) DEFAULT NULL,
+  `uricAcidResult` varchar(50) DEFAULT NULL,
+  `uricAcidStatus` varchar(50) DEFAULT NULL,
+  `altSgptResult` varchar(50) DEFAULT NULL,
+  `altSgptStatus` varchar(50) DEFAULT NULL,
+  `astSgotResult` varchar(50) DEFAULT NULL,
+  `astSgotStatus` varchar(50) DEFAULT NULL,
+  `bloodUreaNitrogenResultSi` varchar(50) DEFAULT NULL,
+  `bloodUreaNitrogenStatusSi` varchar(50) DEFAULT NULL,
+  `creatinineResultSi` varchar(50) DEFAULT NULL,
+  `creatinineStatusSi` varchar(50) DEFAULT NULL,
+  `uricAcidResultSi` varchar(50) DEFAULT NULL,
+  `uricAcidStatusSi` varchar(50) DEFAULT NULL,
+  `altSgptResultSi` varchar(50) DEFAULT NULL,
+  `altSgptStatusSi` varchar(50) DEFAULT NULL,
+  `astSgotResultSi` varchar(50) DEFAULT NULL,
+  `astSgotStatusSi` varchar(50) DEFAULT NULL,
+  `dateAdded` date DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+#
+# Data for table "cbc"
+#
+
+INSERT INTO `cbc` VALUES (1,7,'dsfdsf','','','','fsd','Semi-normal','','','','','','','','','dsfsdf','','','Normal','','','2024-11-24');
 
 #
 # Structure for table "lab"
@@ -53,3 +103,90 @@ CREATE TABLE `lab` (
   `dateAdded` date DEFAULT NULL,
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+#
+# Data for table "lab"
+#
+
+
+#
+# Structure for table "lipid"
+#
+
+DROP TABLE IF EXISTS `lipid`;
+CREATE TABLE `lipid` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `patientId` int(11) DEFAULT NULL,
+  `tCholesterolResult` varchar(50) DEFAULT NULL,
+  `tCholesterolStatus` varchar(50) DEFAULT NULL,
+  `tCholesterolResultMgDl` varchar(50) DEFAULT NULL,
+  `tCholesterolStatusMgDl` varchar(50) DEFAULT NULL,
+  `hdlCholesterolResult` varchar(50) DEFAULT NULL,
+  `hdlCholesterolStatus` varchar(50) DEFAULT NULL,
+  `hdlCholesterolResultMgDl` varchar(50) DEFAULT NULL,
+  `hdlCholesterolStatusMgDl` varchar(50) DEFAULT NULL,
+  `triglycerideResult` varchar(50) DEFAULT NULL,
+  `triglycerideStatus` varchar(50) DEFAULT NULL,
+  `triglycerideResultMgDl` varchar(50) DEFAULT NULL,
+  `triglycerideStatusMgDl` varchar(50) DEFAULT NULL,
+  `ldlCholesterolResult` varchar(50) DEFAULT NULL,
+  `ldlCholesterolStatus` varchar(50) DEFAULT NULL,
+  `ldlCholesterolResultMgDl` varchar(50) DEFAULT NULL,
+  `ldlCholesterolStatusMgDl` varchar(50) DEFAULT NULL,
+  `dateAdded` date DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+#
+# Data for table "lipid"
+#
+
+INSERT INTO `lipid` VALUES (1,7,'dsfdsf','','','','','Normal','','','','','dfsd','Semi-normal','','','','','2024-11-24');
+
+#
+# Structure for table "urinalysis"
+#
+
+DROP TABLE IF EXISTS `urinalysis`;
+CREATE TABLE `urinalysis` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `patientId` int(11) DEFAULT NULL,
+  `colorResult` varchar(50) DEFAULT NULL,
+  `colorStatus` varchar(50) DEFAULT NULL,
+  `appearanceResult` varchar(50) DEFAULT NULL,
+  `appearanceStatus` varchar(50) DEFAULT NULL,
+  `phResult` varchar(50) DEFAULT NULL,
+  `phStatus` varchar(50) DEFAULT NULL,
+  `specificGravityResult` varchar(50) DEFAULT NULL,
+  `specificGravityStatus` varchar(50) DEFAULT NULL,
+  `proteinResult` varchar(50) DEFAULT NULL,
+  `proteinStatus` varchar(50) DEFAULT NULL,
+  `glucoseResult` varchar(50) DEFAULT NULL,
+  `glucoseStatus` varchar(50) DEFAULT NULL,
+  `ketonesResult` varchar(50) DEFAULT NULL,
+  `ketonesStatus` varchar(50) DEFAULT NULL,
+  `bloodResult` varchar(50) DEFAULT NULL,
+  `bloodStatus` varchar(50) DEFAULT NULL,
+  `bilirubinResult` varchar(50) DEFAULT NULL,
+  `bilirubinStatus` varchar(50) DEFAULT NULL,
+  `leukocytesResult` varchar(50) DEFAULT NULL,
+  `leukocytesStatus` varchar(50) DEFAULT NULL,
+  `pusCellsResult` varchar(50) DEFAULT NULL,
+  `pusCellsStatus` varchar(50) DEFAULT NULL,
+  `redBloodCellsResult` varchar(50) DEFAULT NULL,
+  `redBloodCellsStatus` varchar(50) DEFAULT NULL,
+  `epithelialCellsResult` varchar(50) DEFAULT NULL,
+  `epithelialCellsStatus` varchar(50) DEFAULT NULL,
+  `mucusThreadsResult` varchar(50) DEFAULT NULL,
+  `mucusThreadsStatus` varchar(50) DEFAULT NULL,
+  `bacteriaResult` varchar(50) DEFAULT NULL,
+  `bacteriaStatus` varchar(50) DEFAULT NULL,
+  `dateAdded` date DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+#
+# Data for table "urinalysis"
+#
+
+INSERT INTO `urinalysis` VALUES (2,7,'sdfd','','','','','','','','','','sdfdsf','','','','','','','','','','','','','','sdfds','','','','','','2024-11-24');
